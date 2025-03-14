@@ -4,8 +4,8 @@ app.use(express.json())
 
 class Person {
     constructor(id, name, age){
-        this.id = id,
-        this.name = name,
+        this.id = id
+        this.name = name
         this.age = age
     }
 
@@ -32,5 +32,25 @@ class Person {
     }
 }
 
-const person = new Person(1, 'Luiz', 10)
-console.log(person)
+class Student extends Person{
+    constructor(id, name, age, enrolled) {
+        super(id, name, age)
+        this.id = id
+        this.name = name
+        this.age = age
+        this.enrolled = enrolled
+    }
+
+    // Getters
+    getEnrolled() {
+        return this.enrolled
+    }
+
+    // Setters
+    setEnrolled(value) {
+        this.enrolled = value
+    }
+}
+
+const student = new Student(1, 'Luiz', 19, true)
+console.log(student)
