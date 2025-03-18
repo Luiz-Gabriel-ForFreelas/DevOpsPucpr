@@ -18,10 +18,8 @@ jobs:
       - name: Configurar ambiente para CI
         run: echo "CI=true" >> $GITHUB_ENV
       
-      - name: Limpar e reinstalar dependências
-        run: |
-          rm -rf node_modules package-lock.json
-          npm ci
+      - name: Instalar dependências rapidamente
+        run: npm ci
       
       - name: Construir projeto (se necessário)
         run: npm run build || echo "Nenhuma etapa de build necessária"
