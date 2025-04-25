@@ -2,9 +2,18 @@ const express = require('express');
 const PORT = 8080;
 const app = express();
 
+const alunos = Array(
+    {id: 1, nome: "Luiz", idade: 21, curso: "Análise de Sistemas"},
+    {id: 2, nome: "Maria", idade: 20, curso: "Farmácia"}
+)
+
 app.get('/', (req, res) => {
     res.send('Hello, World!');
 });
+
+app.get('/api/alunos', (req, res) => {
+    res.send(alunos)
+})
 
 if (require.main === module) {
     app.listen(PORT, () => {
