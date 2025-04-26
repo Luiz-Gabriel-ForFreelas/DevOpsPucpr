@@ -9,10 +9,10 @@ describe('Testando rotas do Express', () => {
     });
 
     test("GET /api/alunos - deve retornar a lista inicial de alunos", async () => {
-        const initArray = [
+        const initArray = Array(
             {id: 1, nome: "Luiz", idade: 21, curso: "Análise de Sistemas"},
             {id: 2, nome: "Maria", idade: 20, curso: "Farmácia"}
-        ];
+        );
         const response = await request(app).get('/api/alunos');
         expect(response.status).toBe(200);
         expect(response.body).toEqual(initArray);
@@ -31,11 +31,11 @@ describe('Testando rotas do Express', () => {
     });
 
     test("POST /api/alunos/ - deve retornar a lista completa dos alunos", async () => {
-        const expectArray = [
+        const expectArray = Array(
             {id: 1, nome: "Luiz", idade: 21, curso: "Análise de Sistemas"},
             {id: 2, nome: "Maria", idade: 20, curso: "Farmácia"},
             {id: 3, nome: "Teste", idade: 23, curso: "TI"}
-        ];
+        );
         const response = await request(app).post('/api/alunos').send({nome: "Teste", idade: 23, curso: "TI"});
         expect(response.status).toBe(200);
         expect(response.body).toEqual(expectArray);
