@@ -15,6 +15,12 @@ app.get('/api/alunos', (req, res) => {
     res.send(alunos)
 })
 
+app.get('/api/alunos/:id', (rec, res) => {
+    const aluno = alunos.find(a => a.id === parseInt(rec.params.id))
+    if(!aluno) return res.status(404).send('Aluno não encontrado')
+    res.send(aluno)
+})
+
 if (require.main === module) {
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);

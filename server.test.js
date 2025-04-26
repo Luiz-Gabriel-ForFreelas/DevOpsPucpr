@@ -17,4 +17,17 @@ describe('Testando rotas do Express', () => {
         expect(response.status).toBe(200);
         expect(response.body).toEqual(initArray);
     });
+
+    test("GET /api/alunos/:id - deve retornar o aluno desejado", async () => {
+        const aluno = {id: 1, nome: "Luiz", idade: 21, curso: "Análise de Sistemas"};
+        const response = await request(app).get('/api/alunos/1');
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual(aluno);
+    });
+
+    test("GET /api/alunos/:id - deve retornar o status 404", async () => {
+        const response = await request(app).get('/api/alunos/3');
+        expect(response.status).toBe(404);
+        expect(response.body).toEqual('Aluno não encontrado');
+    });
 });
