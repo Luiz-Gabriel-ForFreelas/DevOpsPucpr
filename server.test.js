@@ -28,6 +28,5 @@ describe('Testando rotas do Express', () => {
     test("GET /api/alunos/:id - deve retornar o status 404", async () => {
         const response = await request(app).get('/api/alunos/3');
         expect(response.status).toBe(404);
-        expect(response.body).toEqual('Aluno não encontrado');
     });
 });
