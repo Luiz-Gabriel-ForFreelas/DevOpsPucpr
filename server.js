@@ -1,6 +1,7 @@
 const express = require('express');
 const PORT = 8080;
 const app = express();
+app.use(express.json());
 
 const alunos = Array(
     {id: 1, nome: "Luiz", idade: 21, curso: "Análise de Sistemas"},
@@ -25,7 +26,7 @@ app.post('/api/alunos', (rec, res) => {
     const aluno = {
         id: alunos.length + 1,
         nome: rec.body.nome,
-        idade: rec.body.idade,
+        idade: parseInt(rec.body.idade),
         curso: rec.body.curso
     }
     alunos.push(aluno);
