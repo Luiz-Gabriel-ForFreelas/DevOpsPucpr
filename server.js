@@ -21,6 +21,17 @@ app.get('/api/alunos/:id', (rec, res) => {
     res.send(aluno)
 })
 
+app.post('/api/alunos', (rec, res) => {
+    const aluno = {
+        id: alunos.length + 1,
+        nome: rec.body.nome,
+        idade: rec.body.idade,
+        curso: rec.body.curso
+    }
+    alunos.push(aluno)
+    res.send(alunos)
+})
+
 if (require.main === module) {
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`);
