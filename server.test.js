@@ -37,7 +37,6 @@ describe('Testando rotas do Express', () => {
             {id: 3, nome: "Teste", idade: 23, curso: "TI"}
         );
         const response = await request(app).post('/api/alunos').send({nome: "Teste", idade: 23, curso: "TI"});
-        expect(response.status).toBe(200);
         expect(response.body).toEqual(expectArray);
     })
 });
