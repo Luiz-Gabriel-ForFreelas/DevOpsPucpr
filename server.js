@@ -29,7 +29,7 @@ app.post('/api/alunos', (rec, res) => {
         curso: rec.body.curso
     }
     alunos.push(aluno);
-    res.send(alunos);
+    res.send(aluno);
 })
 
 if (require.main === module) {

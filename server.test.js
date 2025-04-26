@@ -31,12 +31,8 @@ describe('Testando rotas do Express', () => {
     });
 
     test("POST /api/alunos/ - deve retornar a lista completa dos alunos", async () => {
-        const expectArray = Array(
-            {id: 1, nome: "Luiz", idade: 21, curso: "Análise de Sistemas"},
-            {id: 2, nome: "Maria", idade: 20, curso: "Farmácia"},
-            {id: 3, nome: "Teste", idade: 23, curso: "TI"}
-        );
+        const aluno = {id: 3, nome: "Teste", idade: 23, curso: "TI"}
         const response = await request(app).post('/api/alunos').send({nome: "Teste", idade: 23, curso: "TI"});
-        expect(response.body).toEqual(expectArray);
+        expect(response.body).toEqual(aluno);
     })
 });
